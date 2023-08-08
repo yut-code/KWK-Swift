@@ -175,3 +175,29 @@ Input: [1, 3, 5, 6], Output: 6
 Input: [10, 15, 20, 30, 40, 50], Output: 15
 Input: [19, 5, 42, 1, 77], Output: 42  */
 
+func oddOneOut(arr: [Int]) -> Int {
+  var tally = [
+    "odd" : 0,
+    "even" : 0
+  ]
+  
+  var evenNums = [Int]()
+  var oddNums = [Int]()
+  
+  for num in arr {
+    if num % 2 == 0 {
+      tally["even"]! += 1
+      evenNums.append(num)
+    } else {
+      tally["odd"]! += 1
+      oddNums.append(num)
+    }
+  }
+  if tally["odd"]! > tally["even"]! {
+    return evenNums[0]
+  } else {
+    return oddNums[0]
+  }
+}
+
+print(oddOneOut(arr: [1, 3, 5, 6]))
